@@ -41,7 +41,11 @@ INSTALLED_APPS = [
     'allauth', 
     'allauth.account', 
     'allauth.socialaccount', 
-    # 'allauth.socialaccount.providers.google', 
+    'crispy_forms',
+    'jobs',
+    'accounts',
+
+    'allauth.socialaccount.providers.google', 
     # 'allauth.socialaccount.providers.facebook', 
 ]
 
@@ -58,6 +62,8 @@ MIDDLEWARE = [
 ]
 
 ROOT_URLCONF = 'globallantern.urls'
+
+#AUTHENTICATED USER MODEL
 
 TEMPLATES = [
     {

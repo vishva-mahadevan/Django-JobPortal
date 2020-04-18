@@ -1,0 +1,10 @@
+{% load socialaccount %}
+{% providers_mdeia_js %}
+<html>
+    <head>
+        <title>GL Google Authentication</title>
+    </head>
+    <body>
+        <a href="{% provider_login_url "google" %}">Google Connect</a>
+    </body>
+</html>
