@@ -19,11 +19,9 @@ from django.conf.urls import url,include
 
 #home page
 from .views import home
-from accounts.views import googlelogin
 
 urlpatterns = [
     path('admin/', admin.site.urls),
     path(r'accounts/', include('allauth.urls')),
     path('',home,name='home'),
-    path('googleauth',googlelogin),
 ]

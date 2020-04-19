@@ -1,6 +1,6 @@
 from django.shortcuts import render
-from django.contrib.auth.decorators import login_required
+# from django.contrib.auth.decorators import login_required
 
-@login_required
+# @login_required
 def home(request):
-    return render(request,'base.html',{})
+    return render(request,'index.html',{})
