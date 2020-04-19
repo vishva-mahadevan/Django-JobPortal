@@ -1,5 +1,4 @@
 {% load static %}
-
 <!DOCTYPE html>
 <html lang="en">
   <head>
@@ -50,7 +49,7 @@
           <div class="py-1">
             <div class="row align-items-center">
               <div class="col-2">
-                <h2 class="mb-1 site-logo"><a href="index.html">Global<strong class="font-weight-bold"> Lantern</strong> </a></h2> 
+                <h2 class="mb-1 site-logo"><a href="{% url 'home' %}">Global<strong class="font-weight-bold"> Lantern</strong> </a></h2> 
               </div>
               <div class="col-10">
                 <nav class="site-navigation text-right" role="navigation">
@@ -78,7 +77,12 @@
                         </ul>
                       </li>
                       <li><a href="contact.html">Contact</a></li>
-                      <li><a href="new-post.html"><span class="bg-primary text-white py-3 px-4 rounded"><span class="icon-plus mr-3"></span>Sign In</span></a></li>
+                      {% if user.is_authenticated %}
+                      <li><a href="{% url 'account_logout' %}"><span class="bg-primary text-white py-3 px-4 rounded"><span class="icon-plus mr-3"></span>Sign out</span></a></li>
+                      {% else %}
+                      <li><a href="{% url 'account_login' %}"><span class="bg-primary text-white py-3 px-4 rounded"><span></span>Sign In</span></a></li>
+                      <li><a href="{% url 'account_signup' %}"><span class="bg-primary text-white py-3 px-4 rounded"><span></span>Sign up</span></a></li>
+                      {%endif%}
                     </ul>
                   </div>
                 </nav>
@@ -88,7 +92,8 @@
         </div>
       </div>
     </div>
-
+    {% block content %}
+    {% endblock%}
     <footer class="site-footer">
       <div class="container">
         
