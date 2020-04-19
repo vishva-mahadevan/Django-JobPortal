@@ -16,12 +16,12 @@ Including another URLconf
 from django.contrib import admin
 from django.urls import path
 from django.conf.urls import url,include
+from home.views import index,navbar
 
-#home page
-from .views import home
 
 urlpatterns = [
     path('admin/', admin.site.urls),
-    path(r'accounts/', include('allauth.urls')),
-    path('',home,name='home'),
+    path('account/', include('allauth.urls')),
+    path('',index,name='home'),
+    path('navbar',navbar)
 ]

@@ -1,5 +1,2 @@
 from django.shortcuts import render
-
-# Create your views here.
-def googlelogin(request):
-    return render(request,'login.html')
+# from django.contrib.auth.decorators import login_required
