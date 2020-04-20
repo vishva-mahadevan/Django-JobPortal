@@ -1,7 +1,6 @@
 from django.db import models
-from jobs.models import job_location,job_post,job_post_activity,job_post_skill_set,job_type
-from seeker.models import education_detail,seeker_profile,seeker_skill_set,skill_set
-from company.models import business_stream,company,company_image
+from jobs import models as m1
+from seeker import models as m2
 
 # Create your models here.=
 class seeker_profile(models.Model):
@@ -40,6 +39,6 @@ class skill_set(models.Model):
     skill_set_name=models.CharField(max_length=50)
 
 class seeker_skill_set(models.Model):
-    user_account_id=models.OneToOneField(seeker_profile,unique=True)
-    skill_set_id=models.ManyToManyField(skill_set,unique=True)
+    user_account_id=models.OneToOneField(seeker_profile,unique=True,on_delete=models.CASCADE)
+    skill_set_id=models.ManyToManyField(skill_set)
     skill_level=models.IntegerField()

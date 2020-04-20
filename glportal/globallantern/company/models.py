@@ -1,6 +1,5 @@
 from django.db import models
-from jobs.models import job_location,job_post,job_post_activity,job_post_skill_set,job_type
-from seeker.models import education_detail,seeker_profile,seeker_skill_set,skill_set
+from jobs import models as m1 
 # Create your models here.
 class business_stream(models.Model):
     business_stream_name=models.CharField(max_length=100)
@@ -16,5 +15,5 @@ class company(models.Model):
         return 'COMPANY ID #{}'.format(self.id)
 
 class company_image(models.Model):
-    company_id=models.ForeignKey(company)
+    company_id=models.ForeignKey(company,on_delete=models.CASCADE)
     company_image=models.ImageField()
