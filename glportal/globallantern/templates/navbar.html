@@ -80,7 +80,7 @@
                       {% if user.is_authenticated %}
                       <li><a href="{% url 'account_logout' %}"><span class="bg-primary text-white py-3 px-4 rounded"><span class="icon-plus mr-3"></span>Sign out</span></a></li>
                       {% else %}
-                      <li><a href="{% url 'account_login' %}"><span class="bg-primary text-white py-3 px-4 rounded"><span></span>Sign In</span></a></li>
+                      <li><a href="{% url 'account_login' %}"><span class="bg-primary text-white py-3 px-4 rounded"><span style="padding-bottom: 10px;"></span>Sign In</span></a></li>
                       <li><a href="{% url 'account_signup' %}"><span class="bg-primary text-white py-3 px-4 rounded"><span></span>Sign up</span></a></li>
                       {%endif%}
                     </ul>
@@ -89,6 +89,13 @@
               </div>
             </div>
           </div>
+        </div>
+      </div>
+    </div>
+    <div class="container">
+      <div class="row">
+        <div class="col-md-12">
+          
         </div>
       </div>
     </div>

@@ -17,11 +17,12 @@ from django.contrib import admin
 from django.urls import path
 from django.conf.urls import url,include
 from home.views import index,navbar
-
+from jobs.views import postjob
 
 urlpatterns = [
     path('admin/', admin.site.urls),
-    path('account/', include('allauth.urls')),
+    path('accounts/', include('allauth.urls')),
     path('',index,name='home'),
-    path('navbar',navbar)
+    path('navbar',navbar),
+    path('jobpost',postjob,name='addjob')
 ]

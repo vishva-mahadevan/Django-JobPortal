@@ -158,7 +158,8 @@ ACCOUNT_LOGIN_ATTEMPTS_LIMIT = 5
 ACCOUNT_LOGIN_ATTEMPTS_TIMEOUT = 86400 
   
 #or any other page 
-ACCOUNT_LOGOUT_REDIRECT_URL ='/accounts/login/' 
+ACCOUNT_LOGOUT_REDIRECT_URL ='/' 
   
 # redirects to profile page if not configured. 
-LOGIN_REDIRECT_URL = '/accounts/email/'
+LOGIN_REDIRECT_URL = '/'
+EMAIL_BACKEND = 'django.core.mail.backends.console.EmailBackend'
