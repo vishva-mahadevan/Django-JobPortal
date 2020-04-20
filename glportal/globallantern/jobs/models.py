@@ -1,4 +1,6 @@
 from django.db import models
+from seeker.models import education_detail,seeker_profile,seeker_skill_set,skill_set
+from company.models import business_stream,company,company_image
 
 # Create your models here.
 class job_post_activity(models.Model):
@@ -19,7 +21,7 @@ class job_type(models.Model):
 class job_post(models.Model):
     posted_by_id=models.ForeignKey(job_post_activity,on_delete=models.CASCADE)
     job_type_id=models.ForeignKey(job_type,on_delete=models.CASCADE)
-    company_id=models.IntegerField()
+    company_id=models.ForeignKey(company,on_delete=models.CASCADE)
     is_company_name_hidden=models.CharField(max_length=1)
     create_date=models.DateTimeField()
     job_description=models.TextField()
@@ -36,11 +38,8 @@ class job_post(models.Model):
     class Mate:
         verbose_name_plural='jobsposts'
 
-
-
-
 class job_post_skill_set(models.Model):
-    skill_set_id=models.IntegerField()
-    job_post_id=models.IntegerField()
+    skill_set_id=models.ForeignKey(skill_set,on_delete=models.CASCADE)
+    job_post_id=models.ForeignKey(job_post,on_delete=models.CASCADE)
     skill_level=models.IntegerField()
 

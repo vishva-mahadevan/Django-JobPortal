@@ -52,6 +52,9 @@ INSTALLED_APPS = [
     'jobs',
     'accounts',
     'home',
+    'company',
+    'seeker',
+    'gluser',
 
     'allauth.socialaccount.providers.google', 
     # 'allauth.socialaccount.providers.facebook', 
