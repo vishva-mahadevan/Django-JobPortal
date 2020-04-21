@@ -24,5 +24,5 @@ urlpatterns = [
     path('accounts/', include('allauth.urls')),
     path('',index,name='home'),
     path('navbar',navbar),
-    path('jobpost',postjob,name='addjob')
+    path('addpost',postjob,name='addpost')
 ]

@@ -1,13 +1,18 @@
 
 {%extends 'navbar.html' %}
-
+{% load static %}
 {%block content%}
 {% load i18n %}
 {% load account socialaccount %}
 
 {% block head_title %}{% trans "Sign In" %}{% endblock %}
 
-
+<div class="unit-5 overlay" style="background-image: url({% static 'images/hero_1.jpg' %});">
+  <div class="container text-center">
+    <h2 class="mb-0">Post a Job</h2>
+    <p class="mb-0 unit-6"><a href="{% url 'home' %}">Home</a> <span class="sep">></span> <span>Login</span></p>
+  </div>
+</div>
 <div class="container">
 
 <div class="col-sm-6 col-sm-offset-3 text-center">

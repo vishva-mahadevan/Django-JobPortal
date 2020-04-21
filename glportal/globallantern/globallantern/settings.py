@@ -166,3 +166,6 @@ ACCOUNT_LOGOUT_REDIRECT_URL ='/'
 # redirects to profile page if not configured. 
 LOGIN_REDIRECT_URL = '/'
 EMAIL_BACKEND = 'django.core.mail.backends.console.EmailBackend'
+
+#Crispy Forms
+CRISPY_TEMPLATE_PACK = 'uni_form'
