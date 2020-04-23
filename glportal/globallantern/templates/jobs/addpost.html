@@ -29,17 +29,18 @@
   <div class="site-section bg-light">
     <div class="container">
       <div class="row">
-     
+        
         <div class="col-md-12 col-lg-8 mb-5">
-        
-          
-        
-          <form action="" method="POST" class="p-5 bg-white">
+          <form action="addpost_preview" method="POST" class="p-5 bg-white">
+
+
             {% csrf_token %}
+
+
             <div class="row form-group">
               <div class="col-md-12 mb-3 mb-md-0">
                 <label class="font-weight-bold" for="fullname">Job Title</label>
-                <input type="text" id="fullname" class="form-control" placeholder="eg. Full Stack Frontend">
+                {{form.job_title}}
               </div>
             </div>
 
@@ -55,7 +56,7 @@
             <div class="row form-group mb-5">
               <div class="col-md-12 mb-3 mb-md-0">
                 <label class="font-weight-bold" for="companyID">Company ID</label>
-                <input type="text" id="companyID" class="form-control" placeholder="GL001">
+                {{form.company_id}}
               </div>
             </div>
 
@@ -109,19 +110,19 @@
             <div class="row form-group">
               <div class="col-md-12"><h3>Job Description</h3></div>
               <div class="col-md-12 mb-3 mb-md-0">
-                <textarea name="" class="form-control" id="" cols="30" rows="5"></textarea>
+               {{form.job_description}}
               </div>
             </div>
             <div class="row form-group mb-5">
               <div class="col-md-5 mb-3 mb-md-0">
                 <label class="font-weight-bold" for="closingDate">Closing Date</label>
-                <input type="date" id="closingDate" class="form-control" >
+                {{form.closing_date}}
               </div>
             </div>
             <div class="row form-group mb-5">
               <div class="col-md-5 mb-3 mb-md-0">
                 <label class="font-weight-bold" for="minimumPay">Minimum Pay</label>
-                <input type="text" id="minimumPay" class="form-control" placeholder="Minimum Pay" >
+                {{form.minimum_pay}}
               </div>
             </div>
             <div class="row form-group mb-5">

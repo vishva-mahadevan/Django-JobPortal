@@ -17,12 +17,17 @@ from django.contrib import admin
 from django.urls import path
 from django.conf.urls import url,include
 from home.views import index,navbar
-from jobs.views import postjob
+from jobs.views import addpost,addpost_delete,addpost_edit,addpost_preview,addpost_update
 
 urlpatterns = [
     path('admin/', admin.site.urls),
     path('accounts/', include('allauth.urls')),
     path('',index,name='home'),
     path('navbar',navbar),
-    path('addpost',postjob,name='addpost')
+    path('addpost',addpost,name='addpost'),
+    path('addpost_preview',addpost_preview,name='addpostpreview'),
+    path('addpost_edit/<int:id>',addpost_edit,name='addpostedit'),
+    path('addposr_update/<int:id>',addpost_update,name='addpostupdate'),
+    path('addpost_delete/<int:id>',addpost_delete,name='addpostdelete')
+
 ]

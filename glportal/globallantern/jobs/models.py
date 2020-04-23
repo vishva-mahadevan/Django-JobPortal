@@ -1,11 +1,15 @@
 from django.db import models
 from seeker import models as m1
 from company import models as m2
+from django.urls import reverse
+
 # Create your models here.
 class job_post_activity(models.Model):
     user_account_id=models.IntegerField(unique=True)
     job_post_id=models.IntegerField(unique=True)
     apply_date=models.DateField()
+    class Mate:
+        verbose_name_plural='Job Post Table'
 
 class job_location(models.Model):
     street_address=models.CharField(max_length=100)
@@ -22,18 +26,20 @@ class job_post(models.Model):
     job_type_id=models.ForeignKey(job_type,on_delete=models.CASCADE)
     company_id=models.ForeignKey(m2.company,on_delete=models.CASCADE)
     is_company_name_hidden=models.CharField(max_length=1)
-    create_date=models.DateTimeField()
+    create_date=models.DateTimeField(auto_now_add=True)
     job_description=models.TextField()
     job_location_id=models.ForeignKey(job_location,on_delete=models.CASCADE)
     is_active=models.CharField(max_length=1)
     job_title=models.CharField(max_length=50)
     closing_date=models.DateField()
-    minimum_pay=models.FloatField()
-    maximum_pay=models.FloatField()
+    minimum_pay=models.CharField(max_length=100)
+    maximum_pay=models.CharField(max_length=100)
     slug=models.SlugField(max_length=150,unique=True)
 
     def __str__(self):
-        return 'JOB POST #{}'.format(self.id)
+        return 'JOB POST {}'.format(self.job_title)
+    def get_absolute_url(self):
+        return reverse('addpost', kwargs={'pk': self.pk})
     class Mate:
         verbose_name_plural='jobsposts'
 
