@@ -44,13 +44,13 @@
             <tbody>  
         {% for j in job %}  
             <tr>  
-                <td>{{ j.posted_by_id }}</td>  
+                <td>{{ j.id }}</td>  
                 <td>{{ j.job_title }}</td>  
                 <td>{{ j.job_description }}</td>  
                 <td>{{ j.closing_date }}</td>  
                 <td>  
-                    <a href="/addpost_edit/{{ j.posted_by_id.job_post_id }}"><span class="glyphicon glyphicon-pencil" >Edit</span></a>  
-                    <a href="/addpost_delete/{{ j.posted_by_id}}">Delete</a>  
+                    <a href="/addpost_edit/{{ j.id}}"><span class="glyphicon glyphicon-pencil" >Edit</span></a>  
+                    <a href="/addpost_delete/{{ j.id}}">Delete</a>  
                 </td>  
             </tr>  
         {% endfor %}  

@@ -10,7 +10,7 @@ JOBTYPE= [
 class addPostForm(forms.ModelForm):
     class Meta:
         model=Addpost
-        fields='__all__'
+        fields=['job_title','company_id','job_description','closing_date','minimum_pay','maximum_pay']
         widgets = {
             'job_title': forms.TextInput(attrs={'placeholder': 'eg. Full Stack Developer','class':'form-control'}),
             'company_id': forms.TextInput(attrs={'placeholder': 'eg. Global Lantern','class':'form-control'}),            

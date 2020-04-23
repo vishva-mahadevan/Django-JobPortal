@@ -9,11 +9,14 @@ def addpost(request):
     if request.method=="POST":
         form=addPostForm(request.POST or None)
         if form.is_valid():
+            print("Form is saved")
             try:
                 form.save()
                 return redirect('/addpost_preview')
             except:
-                pass
+                print("Not working")
+        else:
+            print("form is not working")
     else:
         form=addPostForm()
     return render(request,'jobs/addpost.html',{'form':form})
