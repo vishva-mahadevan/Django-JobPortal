@@ -1,1 +1,38 @@
-{% extend 'navbar.html%}
+
+{% extends 'navbar.html' %}
+{% load static %}
+
+{%block content%}
+<div class="site-wrap">
+
+    <div class="site-mobile-menu">
+      <div class="site-mobile-menu-header">
+        <div class="site-mobile-menu-close mt-3">
+          <span class="icon-close2 js-menu-toggle"></span>
+        </div>
+      </div>
+      <div class="site-mobile-menu-body"></div>
+    </div> <!-- .site-mobile-menu -->
+    
+    
+    <div style="height: 113px;"></div>
+  
+    <div class="unit-5 overlay" style="background-image: url({% static 'images/hero_1.jpg' %});">
+      <div class="container text-center">
+        <h2 class="mb-0">Upload Resume</h2>
+        <p class="mb-0 unit-6"><a href="{% url 'home'%}">Home</a> <span class="sep">></span> <span>Upload Resume</span></p>
+      </div>
+    </div>
+</div>
+<div style="height: 113px;"></div>
+
+<div class="container">
+  <form method="post" enctype="multipart/form-data" class="form-group">
+    {% csrf_token %}
+    <input type="file" name="myfile" class="form-control" placeholder="Browse the file">
+    <button type="submit" class="form-control">Upload</button>
+  </form>
+</div>
+<div style="height: 113px;"></div>
+</script>
+{%endblock%}

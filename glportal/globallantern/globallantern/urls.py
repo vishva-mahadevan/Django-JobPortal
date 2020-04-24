@@ -16,18 +16,23 @@ Including another URLconf
 from django.contrib import admin
 from django.urls import path
 from django.conf.urls import url,include
-from home.views import index,navbar
-from jobs.views import addpost,addpost_delete,addpost_edit,addpost_preview,addpost_update
+from home.views import *
+from jobs.views import *
 
 urlpatterns = [
     path('admin/', admin.site.urls),
     path('accounts/', include('allauth.urls')),
+    #home pages 
+
+
     path('',index,name='home'),
-    path('navbar',navbar),
+    path('uploadresume',uploadresume,name='uploadresume'),
+    #adding post 
+
     path('addpost',addpost,name='addpost'),
     path('addpost_preview',addpost_preview,name='addpostpreview'),
     path('addpost_edit/<int:id>',addpost_edit,name='addpostedit'),
     path('addposr_update/<int:id>',addpost_update,name='addpostupdate'),
-    path('addpost_delete/<int:id>',addpost_delete,name='addpostdelete')
+    path('addpost_delete/<int:id>',addpost_delete,name='addpostdelete'),
 
 ]
