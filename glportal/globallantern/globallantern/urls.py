@@ -18,17 +18,21 @@ from django.urls import path
 from django.conf.urls import url,include
 from home.views import *
 from jobs.views import *
+from seeker.views import *
 from django.conf import settings
 from django.conf.urls.static import static
 
 urlpatterns = [
     path('admin/', admin.site.urls),
     path('accounts/', include('allauth.urls')),
+
     #home pages 
-
-
     path('',index,name='home'),
     path('uploadresume',uploadresume,name='uploadresume'),
+
+    #Job Seeker Profile
+    path('buildprofile_resume/',buildprofile_resume,name='buildprofiler'),
+    
     #adding post 
 
     path('addpost',addpost,name='addpost'),

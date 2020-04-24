@@ -1,0 +1,113 @@
+{% extends 'navbar.html'%}
+{% load static %}
+
+
+{%block content%}
+<div class="site-wrap">
+    <div class="site-mobile-menu">
+      <div class="site-mobile-menu-header">
+        <div class="site-mobile-menu-close mt-3">
+          <span class="icon-close2 js-menu-toggle"></span>
+        </div>
+      </div>
+      <div class="site-mobile-menu-body"></div>
+    </div> <!-- .site-mobile-menu -->
+
+    <div style="height: 113px;"></div>
+  
+    <div class="unit-5 overlay" style="background-image: url({% static 'images/hero_1.jpg' %});">
+      <div class="container text-center">
+        <h2 class="mb-0">Resume Parser</h2>
+        <p class="mb-0 unit-6"><a href="{% url 'home'%}">Home</a> <span class="sep">></span> <span>Parsed Resume</span></p>
+      </div>
+    </div>
+    <div style="height: 113px;"></div>
+    <div class="container">
+        <h1>Resume Details</h1>
+        <div class="row">
+            <div class="col-md-7">
+                <form action="{% url 'home'%}" method="POST" class="p-5 bg-white">
+
+
+                    {% csrf_token %}
+        
+        
+                    <div class="row form-group">
+                      <div class="col-md-12 mb-3 mb-md-0">
+                        <label class="font-weight-bold" for="fullname">Full Name</label>
+                        <input name="firstname" type="text" value="{{resume.name }}" class="form-control" placeholder="Enter Name">
+                      </div>
+                    </div>
+        
+                    
+        
+                    <div class="row form-group mb-5">
+                      <div class="col-md-12 mb-3 mb-md-0">
+                        <label class="font-weight-bold" for="email">E-mail</label>
+                        <input type="text" id="email" class="form-control" value="{{resume.email}}"  placeholder="Enter Email Id">
+                      </div>
+                    </div>
+
+                    <div class="row form-group mb-5">
+                        <div class="col-md-12 mb-3 mb-md-0">
+                          <label class="font-weight-bold" for="number">Phone number</label>
+                          <input type="text" id="number" class="form-control" value="{{resume.mobile_number}}"  placeholder="Enter Phone number">
+                        </div>
+                      </div>
+
+                      <div class="row form-group mb-5">
+                        <div class="col-md-12 mb-3 mb-md-0">
+                          <label class="font-weight-bold" for="number">Designation</label>
+                          <input type="text" id="degree" class="form-control" value="{{resume.designation}}"  placeholder="Enter your Designation">
+                        </div>
+                      </div>
+                      
+                      <div class="row form-group mb-5">
+                        <div class="col-md-12 mb-3 mb-md-0">
+                          <label class="font-weight-bold" for="number">Degree</label>
+                          <input type="text" id="degree" class="form-control" value="{{resume.degree}}"  placeholder="Enter your Degree">
+                        </div>
+                      </div>
+                      <div class="row form-group mb-5">
+                        <div class="col-md-12 mb-3 mb-md-0">
+                          <label class="font-weight-bold" for="number">Skills</label>
+                          
+                          <textarea type="textarea" id="degree" class="form-control" value="{{resume.skills}}"  placeholder="Enter your skills by comma seprated">{{resume.skills}}</textarea>
+                        </div>
+                      </div>
+        
+                      <div class="row form-group mb-5">
+                        <div class="col-md-12 mb-3 mb-md-0">
+                          <label class="font-weight-bold" for="college">College/University</label>
+                          <input type="text" id="college" class="form-control" value="{{resume.college_name}}"  placeholder="Enter your college">
+                        </div>
+                      </div>
+
+                      <div class="row form-group mb-5">
+                        <div class="col-md-12 mb-3 mb-md-0">
+                          <label class="font-weight-bold" for="company">Industrial Experience</label>
+                          <input type="text" id="company" class="form-control" value="{{resume.company_names}}"  placeholder="Add you Experince">
+                        </div>
+                      </div>
+
+                    <div class="row form-group mb-5">
+                      <div class="col-md-5 mb-3 mb-md-0">
+                        <label class="font-weight-bold" for="maximumPay">Total Experience</label>
+                        <input type="text" id="maximumPay" class="form-control" value="{{resume.total_experience}}" readonly=True>
+                      </div>
+                    </div>
+        
+                    <div class="row form-group">
+                      <div class="col-md-12">
+                        <input type="submit" value="Update" class="btn btn-primary  py-2 px-5">
+                      </div>
+                    </div>
+        
+        
+                  </form>
+            </div>
+            
+        </div>
+    </div>
+</div>
+{%endblock%}
