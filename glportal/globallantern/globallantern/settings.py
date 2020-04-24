@@ -172,3 +172,5 @@ EMAIL_BACKEND = 'django.core.mail.backends.console.EmailBackend'
 
 #Crispy Forms
 CRISPY_TEMPLATE_PACK = 'uni_form'
+MEDIA_URL = '/media/'
+MEDIA_ROOT = os.path.join(BASE_DIR, 'media')

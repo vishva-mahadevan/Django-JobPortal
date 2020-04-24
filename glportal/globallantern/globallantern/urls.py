@@ -18,6 +18,8 @@ from django.urls import path
 from django.conf.urls import url,include
 from home.views import *
 from jobs.views import *
+from django.conf import settings
+from django.conf.urls.static import static
 
 urlpatterns = [
     path('admin/', admin.site.urls),
@@ -36,3 +38,6 @@ urlpatterns = [
     path('addpost_delete/<int:id>',addpost_delete,name='addpostdelete'),
 
 ]
+if settings.DEBUG:
+    urlpatterns += static(settings.MEDIA_URL, document_root=settings.MEDIA_ROOT)
+        

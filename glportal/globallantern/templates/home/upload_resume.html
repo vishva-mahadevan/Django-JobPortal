@@ -29,7 +29,7 @@
 <div class="container">
   <form method="post" enctype="multipart/form-data" class="form-group">
     {% csrf_token %}
-    <input type="file" name="myfile" class="form-control" placeholder="Browse the file">
+    {{form.as_p}}
     <button type="submit" class="form-control">Upload</button>
   </form>
 </div>
