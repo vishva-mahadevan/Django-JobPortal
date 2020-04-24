@@ -56,6 +56,9 @@ INSTALLED_APPS = [
     'seeker',
     'gluser',
 
+    # File form < Installed in pip install django-file-form>
+    'django_file_form',
+
     'allauth.socialaccount.providers.google', 
     # 'allauth.socialaccount.providers.facebook', 
 ]
