@@ -158,6 +158,18 @@ USE_TZ = True
 
 STATIC_URL = '/static/'
 
+# Additional Addons [ Allauth permisions]
+ACCOUNT_FORMS = { 
+    'login': 'allauth.account.forms.LoginForm',
+    'signup': 'globallantern.forms.CustomSignupForm',
+    'add_email': 'allauth.account.forms.AddEmailForm',
+    'change_password': 'allauth.account.forms.ChangePasswordForm',
+    'set_password': 'allauth.account.forms.SetPasswordForm',
+    'reset_password': 'allauth.account.forms.ResetPasswordForm',
+    'reset_password_from_key': 'allauth.account.forms.ResetPasswordKeyForm',
+    'disconnect': 'allauth.socialaccount.forms.DisconnectForm',
+} 
+
 
 ACCOUNT_EMAIL_CONFIRMATION_EXPIRE_DAYS =1
 ACCOUNT_EMAIL_REQUIRED = True
@@ -183,6 +195,7 @@ STATIC_ROOT  =   os.path.join(BASE_DIR, 'staticfiles')
 STATIC_URL = '/static/'
 
 # Extra lookup directories for collectstatic to find static files
+
 STATICFILES_DIRS = (
     os.path.join(BASE_DIR, 'static'),
 )
