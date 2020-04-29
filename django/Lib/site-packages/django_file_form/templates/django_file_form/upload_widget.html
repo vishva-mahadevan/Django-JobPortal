@@ -1,0 +1,12 @@
+{% load i18n %}
+<div class="dff-uploader">
+    <div
+        class="dff-container"
+        {% if uploaded_files %}
+            data-files='{{ uploaded_files }}'
+        {% endif %}
+        data-translations="{{ translations }}"
+    >
+        {{ input }}
+    </div>
+</div>

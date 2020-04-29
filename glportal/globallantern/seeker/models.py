@@ -1,12 +1,14 @@
 from django.db import models
 from jobs import models as m1
 from seeker import models as m2
-
+from pyresparser import ResumeParser
+data = ResumeParser('seeker/GL01VishwaMahadevan.pdf').get_extracted_data()
 # Create your models here.=
 class seeker_profile(models.Model):
+    name=data['name'].split()
     user_account_id=models.IntegerField()
-    first_name=models.CharField(max_length=50)
-    last_name=models.CharField(max_length=50)
+    first_name=models.CharField(max_length=50,default=name[0])
+    last_name=models.CharField(max_length=50,default=name[1])
     current_salary=models.IntegerField()
     is_annnually_monthly=models.CharField(max_length=1)
     currency=models.CharField(max_length=50)

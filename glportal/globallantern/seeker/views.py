@@ -1,4 +1,5 @@
 from django.shortcuts import render
+<<<<<<< HEAD
 from .forms import seekerProfileForm
 from jobs.models import job_post
 from django.db.models import Q
@@ -34,3 +35,12 @@ def add_edit_profile(request):
     else:
         form=seekerProfileForm()
     return render(request,'seeker/add_edit_profile.html',{'form':form})
+=======
+from pyresparser import ResumeParser
+
+
+# Create your views here.
+def buildprofile_resume(request):
+    data = ResumeParser('seeker/GL01VishwaMahadevan.pdf').get_extracted_data()
+    return render(request,'seeker/rbuildprofile.html',{'resume':data})
+>>>>>>> ce2194b5be13a1438c60cd717131bea33565e221

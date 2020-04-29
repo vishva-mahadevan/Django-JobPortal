@@ -11,9 +11,12 @@ https://docs.djangoproject.com/en/3.0/ref/settings/
 """
 
 import os
-
+# import dj_database_url 
+# prod_db  =  dj_database_url.config(conn_max_age=500)
+# DATABASES['default'].update(prod_db)
 # Build paths inside the project like this: os.path.join(BASE_DIR, ...)
 BASE_DIR = os.path.dirname(os.path.dirname(os.path.abspath(__file__)))
+
 TEMPLATE_DIR=os.path.join(BASE_DIR,'templates')
 
 STATICFILES_DIRS = (
@@ -56,6 +59,9 @@ INSTALLED_APPS = [
     'seeker',
     'gluser',
 
+    # File form < Installed in pip install django-file-form>
+    'django_file_form',
+
     'allauth.socialaccount.providers.google', 
     # 'allauth.socialaccount.providers.facebook', 
 ]
@@ -63,6 +69,7 @@ INSTALLED_APPS = [
 SITE_ID=1
 
 MIDDLEWARE = [
+    # 'whitenoise.middleware.WhiteNoiseMiddleware',
     'django.middleware.security.SecurityMiddleware',
     'django.contrib.sessions.middleware.SessionMiddleware',
     'django.middleware.common.CommonMiddleware',
@@ -151,6 +158,18 @@ USE_TZ = True
 
 STATIC_URL = '/static/'
 
+# Additional Addons [ Allauth permisions]
+ACCOUNT_FORMS = { 
+    'login': 'allauth.account.forms.LoginForm',
+    'signup': 'globallantern.forms.CustomSignupForm',
+    'add_email': 'allauth.account.forms.AddEmailForm',
+    'change_password': 'allauth.account.forms.ChangePasswordForm',
+    'set_password': 'allauth.account.forms.SetPasswordForm',
+    'reset_password': 'allauth.account.forms.ResetPasswordForm',
+    'reset_password_from_key': 'allauth.account.forms.ResetPasswordKeyForm',
+    'disconnect': 'allauth.socialaccount.forms.DisconnectForm',
+} 
+
 
 ACCOUNT_EMAIL_CONFIRMATION_EXPIRE_DAYS =1
 ACCOUNT_EMAIL_REQUIRED = True
@@ -169,3 +188,17 @@ EMAIL_BACKEND = 'django.core.mail.backends.console.EmailBackend'
 
 #Crispy Forms
 CRISPY_TEMPLATE_PACK = 'uni_form'
+MEDIA_URL = '/media/'
+MEDIA_ROOT = os.path.join(BASE_DIR, 'media')
+PROJECT_ROOT   =   os.path.join(os.path.abspath(__file__))
+STATIC_ROOT  =   os.path.join(BASE_DIR, 'staticfiles')
+STATIC_URL = '/static/'
+
+# Extra lookup directories for collectstatic to find static files
+
+STATICFILES_DIRS = (
+    os.path.join(BASE_DIR, 'static'),
+)
+
+#  Add configuration for static files storage using whitenoise
+# STATICFILES_STORAGE = 'whitenoise.django.GzipManifestStaticFilesStorage'

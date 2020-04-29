@@ -34,7 +34,23 @@
                   <p class="small">or browse by category: <a href="#" class="category">Category #1</a> <a href="#" class="category">Category #2</a></p>
                 </div>
               </div>
-              
+              <div class="container">
+                <div class="row">
+                  <div class="col-md-4">
+
+                  </div>
+                  <div class="col-md-2 mb-2 mb-md-0">
+                    <h2><a class="btn btn-primary btn-block" href="{%url 'uploadresume'%} ">Upload Resume</a></h2>
+           {#{%if user.user_type=="job_seeker" %}#} 
+                    <!-- <h1>Working Fucker</h1> -->
+                    {#{%endif%}#}
+                  </div>
+                  <div class="col-md-2 mb-2 mb-md-0">
+                    <h2><a class="btn btn-primary btn-block" href="{%url 'home'%} ">Complete Profile</a></h2>
+                  </div>
+                  
+                </div>
+              </div>
             </form>
           </div>
         </div>
