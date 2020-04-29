@@ -1,0 +1,57 @@
+{%extends 'navbar.html'%}
+{% load static %}
+{% block content %}
+<div class="site-wrap">
+
+    <div class="site-mobile-menu">
+      <div class="site-mobile-menu-header">
+        <div class="site-mobile-menu-close mt-3">
+          <span class="icon-close2 js-menu-toggle"></span>
+        </div>
+      </div>
+      <div class="site-mobile-menu-body"></div>
+    </div> <!-- .site-mobile-menu -->
+    
+    
+    <div style="height: 153px;"></div>
+<div class="container">
+    <form method="GET">
+        <div class="form-row">
+     <div class="form-group col-md-5">
+         <b>What</b>
+        <input class="form-control" placeholder="Job title, keywords or company"  type="search" name="jobs">
+    </div>
+    <div class="form-group col-md-5">
+        <b>Where</b>
+        <input class="form-control" placeholder="City, state or pincode"  type="search" name="location">
+    </div>
+    <div class="form-group col-md-2"><br>
+        <button class="btn btn-primary form-control" type="submit">Find Jobs</button>
+    </div>
+    </div>    
+    </form>
+        <hr>
+        {% if not query_set %}
+            <p>not results found</p>
+        {% endif %}
+        {% if query_set %} 
+        <p>"Search results for {{job}}"</p>
+      {% endif %}
+        <div class="row" style="min-height: 500px ;"> 
+        <div class="list-group btn-block">
+            {% for job_post in query_set %}
+            <a href="#" class="list-group-item list-group-item-action"> 
+                <b>{{job_post.job_title}}</b>
+                <hr>
+                <p>Company : {{job_post.company_id.company_name}}</p>
+                <p>Salary : {{job_post.minimum_pay}} - {{job_post.maximum_pay}}</p>
+                <p>Location : {{job_post.job_location_id.city}} </p>
+                <button class="btn btn-primary">View Job</button>
+            </a>
+            <hr>
+            {% endfor %}
+        </div>
+    </div>
+    
+</div>
+{% endblock %}

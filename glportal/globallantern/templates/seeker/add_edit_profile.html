@@ -18,8 +18,8 @@
 
   <div class="unit-5 overlay" style="background-image: url({% static 'images/hero_1.jpg' %});">
     <div class="container text-center">
-      <h2 class="mb-0">Post a Job</h2>
-      <p class="mb-0 unit-6"><a href="index.html">Home</a> <span class="sep">></span> <span>Post a Job</span></p>
+      <h2 class="mb-0">Edit profile</h2>
+      <p class="mb-0 unit-6"><a href="index.html">Home</a> <span class="sep">></span> <span>Edit Profile</span></p>
     </div>
   </div>
 
@@ -31,7 +31,7 @@
       <div class="row">
         
         <div class="col-md-12 col-lg-8 mb-5">
-          <form action="addpost_preview" method="POST" class="p-5 bg-white">
+          <form action="" method="POST" class="p-5 bg-white">
 
 
             {% csrf_token %}
@@ -39,8 +39,8 @@
 
             <div class="row form-group">
               <div class="col-md-12 mb-3 mb-md-0">
-                <label class="font-weight-bold" for="fullname">Job Title</label>
-                {{form.job_title}}
+                <label class="font-weight-bold" for="first_name">First Name</label>
+                {{form.first_name}}
                 
               </div>
             </div>
@@ -49,93 +49,31 @@
 
             <div class="row form-group mb-5">
               <div class="col-md-12 mb-3 mb-md-0">
-                <label class="font-weight-bold" for="fullname">Company</label>
-                <input type="text" id="fullname" class="form-control" placeholder="eg. Facebook, Inc.">
+                <label class="font-weight-bold" for="last_name">Last Name</label>
+                {{form.last_name}}
               </div>
             </div>
 
             <div class="row form-group mb-5">
               <div class="col-md-12 mb-3 mb-md-0">
-                <label class="font-weight-bold" for="companyID">Company ID</label>
-                {{form.company_id}}
+                <label class="font-weight-bold" for="current_salary">Current Salary</label>
+                {{form.current_salary}}
               </div>
             </div>
 
             <div class="row form-group">
-              <div class="col-md-12"><h3>Job Type</h3></div>
               <div class="col-md-12 mb-3 mb-md-0">
-                <label for="option-job-type-1">
-                  <input type="radio" id="option-job-type-1" name="job-type" value="FULLTIME"> Full Time
-                </label>
-              </div>
-              <div class="col-md-12 mb-3 mb-md-0">
-                <label for="option-job-type-2">
-                  <input type="radio" id="option-job-type-2" name="job-type" value="PARTTIME"> Part Time
-                </label>
-              </div>
 
-              <div class="col-md-12 mb-3 mb-md-0">
-                <label for="option-job-type-3">
-                  <input type="radio" id="option-job-type-3" name="job-type" value="FREELANCE"> Freelance
-              </div>
-              <div class="col-md-12 mb-3 mb-md-0">
-                <label for="option-job-type-4">
-                  <input type="radio" id="option-job-type-4" name="job-type" value="INTERNSHIP"> Internship
-                </label>
-              </div>
-              <div class="col-md-12 mb-3 mb-md-0">
-                <label for="option-job-type-4">
-                  <input type="radio" id="option-job-type-4" name="job-type" value="TEMPORARY"> Termporary
-                </label>
-              </div>
-              <div class="col-md-12 mb-3 mb-md-0">
-                <label for="option-job-type-4">
-                  <input type="radio" id="option-job-type-4" name="job-type" value="OTHER"> Other
-                </label>
-              </div>
-              <div class="col-md-12 mb-3 mb-md-0">
-                <label for="option-job-type-4">
-                  <input type="text" id="option-job-type-4" name="job-type-name" value="" placeholder="Type the Job">
-                </label>
-              </div>
+               
+            </div>
 
             </div>
 
-            <div class="row form-group mb-4">
-              <div class="col-md-12"><h3>Location</h3></div>
-              <div class="col-md-12 mb-3 mb-md-0">
-                <input type="text" class="form-control" placeholder="New York City">
-              </div>
-            </div>
-
-            <div class="row form-group">
-              <div class="col-md-12"><h3>Job Description</h3></div>
-              <div class="col-md-12 mb-3 mb-md-0">
-               {{form.job_description}}
-              </div>
-            </div>
-            <div class="row form-group mb-5">
-              <div class="col-md-5 mb-3 mb-md-0">
-                <label class="font-weight-bold" for="closingDate">Closing Date</label>
-                {{form.closing_date}}
-              </div>
-            </div>
-            <div class="row form-group mb-5">
-              <div class="col-md-5 mb-3 mb-md-0">
-                <label class="font-weight-bold" for="minimumPay">Minimum Pay</label>
-                {{form.minimum_pay}}
-              </div>
-            </div>
-            <div class="row form-group mb-5">
-              <div class="col-md-5 mb-3 mb-md-0">
-                <label class="font-weight-bold" for="maximumPay">Maximum Pay</label>
-                <input type="text" id="maximumPay" class="form-control" placeholder="Maximum Pay">
-              </div>
-            </div>
+           
 
             <div class="row form-group">
               <div class="col-md-12">
-                <input type="submit" value="Post a Job" class="btn btn-primary  py-2 px-5">
+                <input type="submit" value="Update" class="btn btn-primary  py-2 px-5">
               </div>
             </div>
 
@@ -234,69 +172,5 @@
   </div>
 
   
-
-
-  
-  <footer class="site-footer">
-    <div class="container">
-      
-
-      <div class="row">
-        <div class="col-md-4">
-          <h3 class="footer-heading mb-4 text-white">About</h3>
-          <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Repellat quos rem ullam, placeat amet.</p>
-          <p><a href="#" class="btn btn-primary pill text-white px-4">Read More</a></p>
-        </div>
-        <div class="col-md-6">
-          <div class="row">
-            <div class="col-md-6">
-              <h3 class="footer-heading mb-4 text-white">Quick Menu</h3>
-                <ul class="list-unstyled">
-                  <li><a href="#">About</a></li>
-                  <li><a href="#">Services</a></li>
-                  <li><a href="#">Approach</a></li>
-                  <li><a href="#">Sustainability</a></li>
-                  <li><a href="#">News</a></li>
-                  <li><a href="#">Careers</a></li>
-                </ul>
-            </div>
-            <div class="col-md-6">
-              <h3 class="footer-heading mb-4 text-white">Categories</h3>
-                <ul class="list-unstyled">
-                  <li><a href="#">Full Time</a></li>
-                  <li><a href="#">Freelance</a></li>
-                  <li><a href="#">Temporary</a></li>
-                  <li><a href="#">Internship</a></li>
-                </ul>
-            </div>
-          </div>
-        </div>
-
-        
-        <div class="col-md-2">
-          <div class="col-md-12"><h3 class="footer-heading mb-4 text-white">Social Icons</h3></div>
-            <div class="col-md-12">
-              <p>
-                <a href="#" class="pb-2 pr-2 pl-0"><span class="icon-facebook"></span></a>
-                <a href="#" class="p-2"><span class="icon-twitter"></span></a>
-                <a href="#" class="p-2"><span class="icon-instagram"></span></a>
-                <a href="#" class="p-2"><span class="icon-vimeo"></span></a>
-
-              </p>
-            </div>
-        </div>
-      </div>
-      <div class="row pt-5 mt-5 text-center">
-        <div class="col-md-12">
-          <p>
-          <!-- Link back to Colorlib can't be removed. Template is licensed under CC BY 3.0. -->
-          Copyright &copy; <script data-cfasync="false" src="/cdn-cgi/scripts/5c5dd728/cloudflare-static/email-decode.min.js"></script><script>document.write(new Date().getFullYear());</script> All Rights Reserved | This template is made with <i class="icon-heart text-warning" aria-hidden="true"></i> by <a href="https://colorlib.com" target="_blank" >Colorlib</a>
-          <!-- Link back to Colorlib can't be removed. Template is licensed under CC BY 3.0. -->
-          </p>
-        </div>
-        
-      </div>
-    </div>
-  </footer>
 </div>
 {%endblock%}

@@ -2,7 +2,7 @@ from django.db import models
 from seeker import models as m1
 from company import models as m2
 from django.urls import reverse
-
+from django.db.models import Q
 # Create your models here.
 
     
