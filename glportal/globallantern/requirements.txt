@@ -20,7 +20,7 @@ importlib-metadata==1.6.0
 joblib==1.2.0
 jsonschema==3.2.0
 murmurhash==1.0.2
-nltk==3.5
+nltk==3.6.6
 numpy==1.18.3
 oauthlib==3.1.0
 pandas==1.0.3
